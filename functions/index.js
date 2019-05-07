@@ -5,6 +5,7 @@ admin.initializeApp(functions.config().firebase);
 exports.cspReport = functions.https.onRequest((request, response) => {
 
     const report = JSON.parse(request.body.toString('utf8'));
+    report.created_at = Date.now();
 
     // report.created_at = '20190423';
 
