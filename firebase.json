@@ -22,7 +22,7 @@
         "function": "cspReport"
       },
       {
-        "source": "/",
+        "source": "/report",
         "function": "cspReport"
       } 
     ]
