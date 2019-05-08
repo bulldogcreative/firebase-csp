@@ -1,12 +1,12 @@
 const functions = require('firebase-functions');
 const admin = require('firebase-admin');
-const url = require('url');
+const url = require('url-parse');
 admin.initializeApp(functions.config().firebase);
 
 exports.cspReport = functions.https.onRequest((request, response) => {
 
     const report = JSON.parse(request.body.toString('utf8'));
-    const myurl = new URL(report.document-uri);
+    const myurl = new url(report.document-uri);
 
     report.created_at = Date.now();
 
