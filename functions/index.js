@@ -14,6 +14,7 @@ exports.cspReport = functions.https.onRequest((request, response) => {
         console.log(`Message with ID: ${ref.id} added.`);
         // We get a CORBS Error when returning a response.
         //return response.json({result: `Message with ID: ${ref.id} added.`});
+        return;
     }).catch((err) => {
         return response.json({result: `Failed. ` + err });
     });
