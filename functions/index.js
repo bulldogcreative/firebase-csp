@@ -6,7 +6,7 @@ admin.initializeApp(functions.config().firebase);
 exports.cspReport = functions.https.onRequest((request, response) => {
 
     const report = JSON.parse(request.body.toString('utf8'));
-    const myurl = new url(report.document-uri);
+    const myurl = new url(report['csp-report']['document-uri']);
 
     report.created_at = Date.now();
 
