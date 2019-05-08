@@ -12,10 +12,7 @@ exports.cspReport = functions.https.onRequest((request, response) => {
 
     const writeResult = admin.firestore().collection(myurl.hostname).add(report);
     writeResult.then((ref) => {
-        console.log(`Message with ID: ${ref.id} added.`);
-        // We get a CORBS Error when returning a response.
-        //return response.json({result: `Message with ID: ${ref.id} added.`});
-        return;
+        return response.json({result: `Message with ID: ${ref.id} added.`});
     }).catch((err) => {
         return response.json({result: `Failed. ` + err });
     });

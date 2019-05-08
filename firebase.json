@@ -20,6 +20,10 @@
       {
         "source": "/csp",
         "function": "cspReport"
+      },
+      {
+        "source": "/",
+        "function": "cspReport"
       } 
     ]
   }
