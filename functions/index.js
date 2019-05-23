@@ -7,8 +7,14 @@ const settings = {/* your settings... */ timestampsInSnapshots: true };
 admin.firestore().settings(settings);
 
 exports.cspReport = functions.https.onRequest((request, response) => {
+    let report;
 
-    const report = JSON.parse(request.body.toString('utf8'));
+    try {
+        report = JSON.parse(request.body.toString('utf8'));
+    } catch(e) {
+        return console.error(e);
+    }
+
     const myurl = new url(report['csp-report']['document-uri']);
 
     report.created_at = Date.now();
