@@ -10,11 +10,16 @@ exports.cspReport = functions.https.onRequest((request, response) => {
 
     report.created_at = Date.now();
 
-    const writeResult = admin.firestore().collection(myurl.hostname).add(report);
+    firestore = admin.firestore();
+    firestore.settings({
+        timestampsInSnapshots: true
+    });
+
+    const writeResult = firestore.collection(myurl.hostname).add(report);
     writeResult.then((ref) => {
         return response.json({result: `Message with ID: ${ref.id} added.`});
     }).catch((err) => {
         return response.json({result: `Failed. ` + err });
     });
-    
+
 });
