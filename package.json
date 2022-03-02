@@ -1,6 +1,6 @@
 {
   "dependencies": {
     "firebase-tools": "^6.10.0",
-    "url-parse": "^1.4.7"
+    "url-parse": "^1.5.9"
   }
 }
